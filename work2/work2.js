@@ -4,6 +4,7 @@ app.controller("cartController", function ($scope) {
   $scope.message = "";
   $scope.message1 = "";
 
+
   $scope.buyItems = [
     { name: "groceries", quntity: 5 },
     { name: "clothes", quntity: 2 },
