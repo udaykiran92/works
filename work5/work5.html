@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./work5.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="check" ng-controller="ourController">
+    <div>
+    <article>
+        <form method="post">
+            Name:<input type="text" ng-model="name" placeholder="enter name" required><h4 class="msg">{{msg}}</h4><br><br>
+            Surname:<input type="text" ng-model="surname" placeholder="surname please"required><h4 class="msg">{{msgs}}</h4><br><br>
+            Email:<input type="text" ng-model="email" placeholder="enter your email"required><h4 class="msg">{{mails}}</h4><br><br>
+            Password:<input type="password" ng-model="password"><h4 class="msg"required>{{message}}</h4><br>
+            Phonenumber:<input type="text" ng-model="number"><h4 class="msg" required>{{no}}</h4><br><br>
+                    <button type="submit" ng-click="check()">click me</button>
+        </form>
+    </article>
+</div>
+</body>
+</html>
