@@ -1,37 +1,83 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</head>
-<body ng-app="myApp">
-    <div class="search">
-        <div ng-controller="myCtrl">
-            <input type="text" ng-model="searchString.section" placeholder="Search Here...">
-            <button class="btn btn-primary" ng-click="show()">Narrow it Down For Me</button>
-            {{message}}
-            <!-- <span ng-if="!searchString.section.length">Please enter Data</span> -->
-            <div class="items">
-                <div class="row" >
-                    <div class="col-md-4" ng-repeat="item in searchItems | filter:searchString:exactMatch">
-                        <div class="card" ng-show="isVisible">
-                            <h4>{{item.image}}</h4>
-                            <h2>{{item.name}}</h2>
-                            <h4>{{item.desc}}</h4>
-                            <h3>{{item.price}}</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Fruits</title>
+    <style>
+      #fruit{
+        font-size: xx-large;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+  50% {text-shadow: 10px 20px 30px blue;}
+}
+      
+      #cntnr {
+    background-image: url("../images/fruit-background.png");
+    background-repeat: no-repeat;
+    text-align: center;
+    align-items: center;
+}
+
+    </style>
+  </head>
+  <body  id="cntnr"  class="container" ng-app="myApp">
+    <div ng-controller="myCtrl">
+    <h1 id="fruit">Fruits for you</h1>
+    <br>
+    <input type="text" ng-model="searchText" placeholder="Search Here..."  size="50" />
+    <button class="btn btn-success" ng-click="show()">
+      Narrow it Down For Me
+    </button>
+    <hr>
+    <marquee style="color: green;"font-size="150%" behaviour="scroll" direction="right" scrollamount="9"><I><h3>The best fruits we sell which are freshly from farm</h3></I></marquee></footer><hr>
+    <div class="row">
+      <table class="table col-md-9">
+        <tr
+          class="animate-repeat"
+          ng-repeat="item in list | filter:searchText | orderBy:'category'   " ng-show='isVisible'
+        >
+          <td><img ng-src="{{item.Image}}" alt="#" /></td>
+          <td>{{item.category}}</td>
+          <td>{{item.desc}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.price}}</td>
+          <td>
+           <button class="btn-success" ng-click="move(item)">
+              Add to Cart
+            </button>
+          </td>
+        </tr>
+      </table>
     </div>
-
-
-    <script src="./work3.js"></script>
-</body>
+    <div class="row">
+      <h2>Your Cart:</h2>
+      <ul>
+        <li class="animate-repeat" ng-repeat="item in bag | orderBy:'category'">
+          <img src="{{item.Image}}"></p>
+         <p>{{item.category}}</p> 
+         <p> {{item.desc}}</p>
+         <p>{{item.quantity}}</p>
+         <p>{{item.price}}</p>
+          <button class="btn-success btn-xs" ng-click="removeItem(item);">Remove from bag</button>
+          </br>
+          </br>
+        </li>
+      </ul>
+  <footer><button class="btn-danger" ng-click="clearCart();">Empty my Bag</button></footer>
+    </div>
+  </div>
+  <script src="work3.js"></script>
+  </body>
+  
 </html>

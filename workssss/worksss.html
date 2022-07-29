@@ -17,15 +17,15 @@
             </div>
 
         </div>
-        <div class="form-group" ng-class="{'has-error': studentForm.lastName.$touched && studentForm.lastName.$error.required ,  'has-success': studentForm.lastName.$valid}">
-            <label for=" lastname" class="col-sm-3 control-label">
+        <div class="form-group" ng-class="{'has-error': studentForm.surName.$touched && studentForm.surName.$error.required ,  'has-success': studentForm.surName.$valid}">
+            <label for="surname" class="col-sm-3 control-label">
                 Surname
             </label>
             <div class="col-sm-6">
-                <input type="text" id="lastName" name="lastName" class="form-control" ng-model="lastName" required />
+                <input type="text" id="surName" name="surName" class="form-control" ng-model="surName" required />
             </div>
             <div class="col-sm-3">
-                <span class="help-block" ng-show="studentForm.lastName.$touched && studentForm.lastName.$error.required">Please enter Last Name.</span>
+                <span class="help-block" ng-show="studentForm.surName.$touched && studentForm.surName.$error.required">Please enter Last Name.</span>
             </div>
         </div>
         <div class="form-group" ng-class="{'has-error': studentForm.emailId.$touched && studentForm.emailId.$error.email , 'has-success': studentForm.emailId.$valid}">
@@ -37,9 +37,19 @@
                 <span class="help-block" ng-show="studentForm.emailId.$touched && studentForm.emailId.$error.email">Please enter valid email.</span>
             </div>
         </div>
-        
-
-        <input type="submit" value="Save" class="btn btn-primary col-sm-offset-3" />
+        <div class="form-group" ng-class="{'has-error' : studentForm.passWord.$touched && studentForm.passWord.$error.passWord , 'has-success' : studentForm.passWord.$valid}">
+              <label for="pwd" class="col-sm-3 control-label">Password</label>
+              <div class="col-sm-6">
+                <input type="password" name="pwd" minlength="5" maxlength="8" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/"data-ng-model="user.pwd" />
+                    <span ng-show="studentForm.pwd.$dirty && studentForm.pwd.$error.minlength"> password is too short</span>  
+                    <span ng-show="studentForm.pwd.$dirty && studentForm.pwd.$error.maxlength"> password is too long</span>  
+                <!-- <input type="password" id="pwd" name="Password" class="orm-control" ng-modal="password" > -->
+              </div>
+              <div class="col-sm-3">
+                <span class="help-block" ng-show="studentForm.password.$touched && studentForm.password.$error.password">Please enter valid password.</span>
+            </div>
+        </div>
+        <input type="submit" value="submit" ng-click="ValidateDetails()" class="btn btn-primary col-sm-offset-3" />
         <input type="button" value="Reset" class="btn" />
     </form>
 </body>

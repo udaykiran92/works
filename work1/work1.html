@@ -13,18 +13,15 @@
 <body>
    <div  class="container" ng-controller="LunchCheckController">
      <h1   id="b">Lunch Checker</h1>
-     <h2>hrllo</h2>
         <center>
          <div id="a" class="form-group">
-             <input id="lunch-menu" type="text"
-             placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control" ng-model="list" ng-style="boxStyle">
+             <input id="lunch-menu" type="text" placeholder="list comma separated dishes you usually have for lunch" class="form-control" ng-model="list" ng-style="boxStyle" style="height: 50px" width="50px">
          </div>
-         <div ng-style ="fontStyle">
-           {{msg}}
+         <div ng-style ="fontStyle"><h1>
+           {{msg}}</h1>
          </div><br><br>
          <div class="form-group">
-             <button class="btn btn-default" ng-click="checkItems()">Check If Too Much</button>
+             <button class="btn btn-primary" ng-click="checkItems()">Check If Too Much</button>
          </div>
          <div class="form-group message">
          </div>

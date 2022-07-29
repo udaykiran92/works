@@ -15,7 +15,7 @@
          if($scope.list !== '') {
              var arr = $scope.list.split(',');
              var count =0;
-             for(var i =0; i<arr.length; i++){
+             for(var i =0; i<arr.length; i++) {
                  if(arr[i].trim() !=='')
                      count++;
              }
@@ -42,7 +42,7 @@
          }
      }
      var enterItems = function() {
-         $scope.msg = 'Please enter data first';
+         $scope.msg = 'First eat something';
              $scope.fontStyle = {
                  "color":"red"
              };

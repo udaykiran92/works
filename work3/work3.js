@@ -1,147 +1,156 @@
-var app = angular.module('myApp', [])
-app.controller('myCtrl', function ($scope) {
-  $scope.searchItems = [
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function ($scope) {
+  $scope.list = [
     {
-      section: 'Dress',
+      category: "Apples",
       id: 1,
-      name: 'laxminarayana',
-      desc: 'laxminarayanadfsklfje',
-      Image: 'image url',
-      price: 'product pfjlksdjfsdjfoijfrice',
+      quantity: 100,
+      desc: "Apple  a day keeps doctor away",
+      Image: "../images/apple.jpg",
+      price: "60rs",
     },
     {
-      section: 'men|boys',
+      category: "Bnananas",
       id: 2,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
+      quantity: 150,
+      desc: "instent energy givers",
+      Image: "../images/bananas.jpg",
+      price: "90rs",
     },
     {
-      section: 'men|boys',
+      category: "Dragonfruits",
       id: 3,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
+      quantity: 20,
+      desc: "China special",
+      Image: "../images/dragonfruit.jpg",
+      price: "40rs",
     },
     {
-      section: 'men|boys',
+      category: "Grapes",
       id: 4,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
+      quantity: 1,
+      desc: "Good for health",
+      Image: "../images/grapes.jpg",
+      price: "70rs",
     },
     {
-      section: 'men|boys',
+      category: "Guavas",
       id: 5,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
+      quantity: 500,
+      desc: "sugar controller",
+      Image: "../images/guva.jpg",
+      price: "40rs",
     },
     {
-      section: 'men|boys',
+      category: "Kiwis",
       id: 6,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
+      quantity: 20,
+      desc: "seasonal fruit",
+      Image: "../images/kiwi.jpg",
+      price: "60rs",
     },
     {
-      section: 'men|boys',
+      category: "Oramnges",
       id: 7,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
+      quantity: 1,
+      desc: "Water-container",
+      Image: "../images/Orange.jpg",
+      price: "90rs",
     },
     {
-      section: 'womens|girls',
+      category: "Pineapples",
       id: 8,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
+      quantity: 20,
+      desc: "Belly cleaner",
+      Image: "../images/pineapple.jpg",
+      price: "80rs",
     },
     {
-      section: 'womens|girls',
+      category: "Pomogranates",
       id: 9,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
+      quantity: 200,
+      desc: "blood increaser",
+      Image: "../images/pomo.jpg",
+      price: "70rs/kg",
     },
     {
-      section: 'womens|girls',
+      category: "Papayas",
       id: 10,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
+      quantity: 1,
+      desc: "good for sugar patients",
+      Image: "../images/ppya.jpg",
+      price: "55rs/kg",
     },
     {
-      section: 'womens|girls',
+      category: "Sapotas",
       id: 11,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
+      quantity: 250,
+      desc: "short and sweet",
+      Image: "../images/sapota.jpg",
+      price: "50rs/kg",
     },
     {
-      section: 'womens|girls',
+      category: "Watermelons",
       id: 12,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
+      quantity: 120,
+      desc: "Summer special",
+      Image: "../images/wtrmln.jpg",
+      price: "50rs",
     },
-    {
-      section: 'womens|girls',
-      id: 13,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
-    },
-    {
-      section: 'womens|girls',
-      id: 14,
-      name: 'product name',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
-    },
-    {
-      section: 'Soft-drinks',
-      id: 15,
-      name: 'sprite',
-      desc: 'product description',
-      Image: 'image url',
-      price: 'product price',
-    },
-  ]
-  $scope.foundList = []
-  $scope.message = ''
-  $scope.isVisible = false
-  $scope.show = function (ite) {
-    $scope.isVisible = $scope.isVisible ? false : true
-  }
-})
+    
+  ];
+  $scope.bag = [];
+  $scope.message = "";
+  $scope.isVisible = false;
+  $scope.show = function (item) {
+    $scope.isVisible = $scope.isVisible ? false : true;
+  };
+  $scope.store = function (item) {
+    if (item) {
+      $scope.bag.push({
+        category: item.category,
+        desc: item.desc,
+        quantity: item.quantity,
+        price: item.price,
+      });
+    }
+  };
 
-app.filter('searchFor', function () {
+  $scope.move = function (item) {
+    if (item) {
+      $scope.bag.push({
+        category: item.category,
+        quantity: item.quantity,
+        desc: item.desc,
+        price: item.price,
+        Image: item.Image,
+      });
+      $scope.list.splice($scope.buyItems.indexOf(item), 1);
+    }
+  };
+
+  $scope.clearCart = function () {
+    $scope.bag.length = 0;
+  };
+
+  $scope.removeItem = function (item) {
+    var index = $scope.bag.indexOf(item);
+    $scope.bag.splice(index, 1);
+  };
+});
+
+app.filter("searchFor", function () {
   return function (arr, searchString) {
     if (!searchString) {
-      return arr
+      return arr;
     }
-    var result = []
-    searchString = searchString.toLowerCase()
+    var result = [];
+    searchString = searchString.toLowerCase();
     angular.forEach(arr, (item) => {
-      if (item.section.toLowerCase().indexOf(searchString) !== -1) {
-        result.push(item)
+      if (item.category.toLowerCase().indexOf(searchString) !== -1) {
+        result.push(item);
       }
-    })
-    return result
-  }
-})
+    });
+    return result;
+  };
+});
