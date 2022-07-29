@@ -64,11 +64,8 @@
       <h2>Your Cart:</h2>
       <ul>
         <li class="animate-repeat" ng-repeat="item in bag | orderBy:'category'">
-          <img src="{{item.Image}}"></p>
-         <p>{{item.category}}</p> 
-         <p> {{item.desc}}</p>
-         <p>{{item.quantity}}</p>
-         <p>{{item.price}}</p>
+        <div>  <img src="{{item.Image}}"> {{item.category}}  {{item.desc}}  {{item.quantity}} {{item.price}}
+         </div>
           <button class="btn-success btn-xs" ng-click="removeItem(item);">Remove from bag</button>
           </br>
           </br>
