@@ -3,11 +3,11 @@
 }
 .header{
     margin: 20px 0;
-    background-image: url();
+    background-image: url(../images/headerbg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-.head{
+.main-head{
    padding: 35px;
 }
 .logo{
@@ -23,11 +23,11 @@
 .content{
     text-align: inherit;
 }
-.list{
+.menu_list{
     list-style-type: none;
     color: white;
 }
-.items{
+.menu_items{
     display: inline-block;
     /* padding-left: 20px; */
     font-weight: 500;
@@ -37,7 +37,7 @@
     border-radius: 10px;
    
 }
-.pic{
+.card{
     width: 250px;
     height: 440px;
     padding: 5px;

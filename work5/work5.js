@@ -23,7 +23,6 @@ app.controller('formCtrl', function ($scope) {
         confirmpassword: $scope.confirmpassword,
       })
       console.log($scope.users);
-    // $scope.form = '';
     }
   }
   if(password == confirmpassword)$scope.message = 'Password is matched'

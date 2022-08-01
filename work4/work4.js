@@ -1,36 +1,181 @@
-var app = angular.module("myApp", []);
-app.controller("cartController", function ($scope) {
-  $scope.boughtItems = [];
-  $scope.message = "";
-  $scope.message1 = "";
-
-  $scope.buyItems = [
-    { name: "GoodDay", quntity: 5 },
-    { name: "Banana", quntity: "1kg" },
-    { name: "Apples", quntity: 5 },
-    { name: "Kiwi", quntity: 3 },
-    { name: "Lays", quntity: 5 },
-    { name: "Bingo", quntity: 5 },
-    { name: "Dark Fantacy", quntity: 2 },
-    { name: "Eclairs", quntity: 1 },
-    { name: "koffiko", quntity: 1 },
-    { name: "Dairy milk", quntity: 2 },
-  ];
-
-  $scope.buy = function (item) {
-    if (item) {
-      $scope.boughtItems.push({ name: item.name, quntity: item.quntity });
-      $scope.buyItems.splice($scope.buyItems.indexOf(item), 1);
+var app=angular.module('ourApp', []);
+app.controller('ourController', function($scope){
+  $scope.inventory=[
+    {
+      
+      image:"../images/" ,
+      section: "Muscle",
+      id: 1,
+      name: 'dumbellset',
+      desc: 'The best Brandy in the Liquor',
+      price: '1200',
+    },
+    {
+      
+      image: 'images/chivas_regal.jpg',
+      section: 'Muscle',
+      id: 2,
+      name: 'Chivas Regal',
+      desc: 'The best Brandy in the Liquor',
+      price: '1200',
+    },
+    {
+      
+      image: "../images/apple.jpg",
+      section: 'Muscle',
+      id: 3,
+      name: 'Chivas Regal',
+      desc: 'The best Brandy in the Liquor',
+      price: '1200',
+    },
+    {
+      
+      image: "../images/apple.jpg",
+      section: 'Muscle',
+      id: 4,
+      name: 'Chivas Regal',
+      desc: 'The best Brandy in the Liquor',
+      price: '1200',
+    },
+    {
+      
+      image:"../images/apple.jpg",
+      section: 'Bones',
+      id: 5,
+      name: 'Chivas Regal',
+      desc: 'The best Brandy in the Liquor',
+      price: '1200',
+    },
+    {
+      
+      image:"../images/apple.jpg",
+      section: 'Bones',
+      id: 6,
+      name: 'Chivas Regal',
+      desc: 'The best Brandy in the Liquor',
+      price: '1200',
+    },
+    {
+      
+      image: "../images/apple.jpg",
+      section: 'Bones',
+      id: 7,
+      name: 'Chivas Regal',
+      desc: 'The best Brandy in the Liquor',
+      price: '1200',
+    },
+    {
+      
+      image: "../images/apple.jpg",
+      section: 'Full-body',
+      id: 8,
+      name: "",
+      desc: 'The best Brandy in the Liquor',
+      price: '1200',
+    },
+    {
+      
+      image: "../images/apple.jpg",
+      section: 'Full-body',
+      id: 9,
+      name: "Ellipticals",
+      desc: "Boosts your stamina and cardio capacity",
+      price: '1200',
+    },
+    {
+      
+      image: "../images/apple.jpg",
+      section: 'Full-body',
+      id: 10,
+      name: "Rowing-Machine",
+      desc: "It's great for heart,lungs & builds power and endurance.",
+      price: '1200',
+    },
+    {
+      
+      image: "../images/apple.jpg",
+      section: "cardio",
+      id: 11,
+      name: "Spin-Bike",
+      desc: "Boosts cardio fitness",
+      price: '1200',
+    },
+    {
+      
+      image:"../images/apple.jpg",
+      section: 'Muscle',
+      id: 12,
+      name: "Low-impacttredmill",
+      desc: "Tred-mill for elderones.",
+      price: '1200',
+    },
+    {
+      
+      image: "../images/apple.jpg",
+      section: 'Abs',
+      id: 13,
+      name: 'Bench-pressroller',
+      desc: "Work upon the upper body musculature.",
+      price: '1200',
+    },
+    {
+      
+      image:"../images/apple.jpg",
+      section: 'Whole-body',
+      id: 14,
+      name: 'medicineball',
+      desc: "Build core strength",
+      price: '1000',
+    },
+    {
+      
+      image: "../images/apple.jpg",
+      section: 'others',
+      id: 15,
+      name: 'Hand-grips',
+      desc: "Wrist controller",
+      price: '200',
+    },
+  ]
+  $scope.searchedList=[]
+  $scope.message=''
+//  $scope.isvisible=false
+  //$scope.show=function(){
+    //$scope.isvisible=$scope.isvisible ? false:true
+  //}
+  $scope.gym=function(thing){
+    if(thing){
+      $scope.searchedList.push({section:thing.section, id:thing.id, name:thing.name, desc:thing.desc, image:thing.image, price:thing.price})
     }
-
-    $scope.len = $scope.buyItems.length;
-    $scope.len1 = $scope.boughtItems.length;
-    if ($scope.len == 0) $scope.message = "buy items are empty";
-  };
-  $scope.remove = function (item1) {
-    if (item1) {
-      $scope.buyItems.push({ name: item1.name, quntity: item1.quntity });
-      $scope.boughtItems.splice($scope.buyItems.indexOf(item1), 1);
+  }
+  $scope.total=0;
+  $scope.setTotal=function(bag){
+    if(bag){
+      $scope.total+=bag.price;
+      //return total
+      console.log($scope.total)
     }
-  };
+  }
+  $scope.smash=function(bag){
+    if(bag){
+      $scope.searchedList.splice($scope.searchedList.indexOf(bag),1);
+    }
+  }
 });
+
+
+app.filter('searchFor', function () {
+  return function (arr, searchElement) {
+    if (!searchElement) {
+      return arr
+    }
+    var result = []
+    searchElement = searchElement.toLowerCase()
+    angular.forEach(arr, (thing) => {
+      if (thing.section.toLowerCase().indexOf(searchElement) !== -1) {
+        result.push(thing)
+      }
+    })
+    return result
+  }
+})

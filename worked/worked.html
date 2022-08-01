@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/Home.css">
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div class="search">
+        <div class="header">
+            <div class="row main-head">
+                <div class="col-md-4">  
+                      <img  class="logo" src="images/logo.png" alt="logo">
+                    </div>
+                <div class="col-md-8 content">
+                    <div class="menu">
+                        <ul class="menu_list">
+                            <li class="menu_items">Home</li>
+                            <!-- <li class="menu_items">About</li> -->
+                            <li class="menu_items">About</li>
+                            <li class="menu_items">Gallery</li>
+                            <li class="menu_items">Contact</li>
+                           <li class="menu_items"> <input class="input" type="search" name="search" ng-model="searchString" placeholder="Search Here...">
+                       <!-- </li> <li class="menu_items"><button class="btn btn-primary"ng-click="show()">Narrow it Down For Me</button>  </li> -->
+                     </ul>
+                    </div> 
+                    <div>                     
+                </div>
+            </div> 
+        </div> 
+    </div>
+        <div class="row">
+            <div class="col-md-8">               
+                <div class="items">
+                    <div class="row" >
+                        <div class="col-md-4" ng-repeat="item in searchItems | searchFor:searchString">
+                            <div class="card">
+                                <h4><img ng-src="{{item.image}}" alt="liquor"></h4>
+                                <div class="card-body">
+                                <h6>{{item.name}}</h6>
+                                <p>{{item.desc}}</p>
+                                <p> &#8377;
+                                {{item.price}}  <button class="button btn-primary" ng-click="store(item)">Add Cart</button></p>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"ng-init="setTotals(cart)" > 
+                 <h2>Cart</h2>
+                <div class="card cart_card" ng-repeat="cart in foundList"  >
+                    <div class="card-body">
+                        <p>  <img class="card-img" ng-src="{{cart.image}}" alt="" /> 
+                         <button class="btn-cart btn-danger" ng-click="remove(cart)">Remove</button>
+                        </p>   
+                        <h6 class="name_price">{{cart.name}}  &nbsp; &nbsp;   &#8377;{{cart.price}} </h6>
+                        <p>{{cart.desc}}</p>
+                    </div>
+                </div>
+                <!-- <h6>Total Price of Items: &#8377; {{total}}</h6> -->
+            </div>
+      </div>
+   </div>
+
+    <script src="./js/Home.js"></script>
+</body>
+</html>
