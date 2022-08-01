@@ -3,7 +3,8 @@
 }
 .header{
     margin: 20px 0;
-    background-image: url(../images/power.jpg);
+/*    background-image: url(../images/power.jpg);*/
+background-color: aqua;
     background-repeat: no-repeat;
     background-size: cover;
 }
