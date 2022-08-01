@@ -3,16 +3,16 @@ app.controller('ourController', function($scope){
   $scope.inventory=[
     {
       
-      image:"../images/" ,
+      image: "../images/barbell set.jpg",
       section: "Muscle",
       id: 1,
       name: 'dumbellset',
-      desc: 'The best Brandy in the Liquor',
+      desc: 'The best muscle increaser',
       price: '1200',
     },
     {
       
-      image: 'images/chivas_regal.jpg',
+      image: '../images/dumbellsets.png',
       section: 'Muscle',
       id: 2,
       name: 'Chivas Regal',
@@ -21,7 +21,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image: "../images/apple.jpg",
+      image: "../images/elliptical.jpg",
       section: 'Muscle',
       id: 3,
       name: 'Chivas Regal',
@@ -30,7 +30,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image: "../images/apple.jpg",
+      image: "../images/grip.jpg",
       section: 'Muscle',
       id: 4,
       name: 'Chivas Regal',
@@ -39,7 +39,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image:"../images/apple.jpg",
+      image:"../images/kettellball.png",
       section: 'Bones',
       id: 5,
       name: 'Chivas Regal',
@@ -48,7 +48,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image:"../images/apple.jpg",
+      image:"../images/lowimpact.jpg",
       section: 'Bones',
       id: 6,
       name: 'Chivas Regal',
@@ -57,7 +57,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image: "../images/apple.jpg",
+      image: "../images/punchbag.jpg",
       section: 'Bones',
       id: 7,
       name: 'Chivas Regal',
@@ -66,7 +66,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image: "../images/apple.jpg",
+      image: "../images/row-machine.jpg",
       section: 'Full-body',
       id: 8,
       name: "",
@@ -75,7 +75,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image: "../images/apple.jpg",
+      image: "../images/spinbike.jpg",
       section: 'Full-body',
       id: 9,
       name: "Ellipticals",
@@ -84,7 +84,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image: "../images/apple.jpg",
+      image: "../images/treadmill.jpg",
       section: 'Full-body',
       id: 10,
       name: "Rowing-Machine",
@@ -93,7 +93,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image: "../images/apple.jpg",
+      image: "../images/gym.jpg",
       section: "cardio",
       id: 11,
       name: "Spin-Bike",
@@ -102,7 +102,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image:"../images/apple.jpg",
+      image:"../images/stationbikes.jpg",
       section: 'Muscle',
       id: 12,
       name: "Low-impacttredmill",
@@ -111,7 +111,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image: "../images/apple.jpg",
+      image: "../images/bench-press.jpg",
       section: 'Abs',
       id: 13,
       name: 'Bench-pressroller',
@@ -120,7 +120,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image:"../images/apple.jpg",
+      image:"../images/medicine-ball.jpeg",
       section: 'Whole-body',
       id: 14,
       name: 'medicineball',
@@ -129,7 +129,7 @@ app.controller('ourController', function($scope){
     },
     {
       
-      image: "../images/apple.jpg",
+      image: "../images/others.jpg",
       section: 'others',
       id: 15,
       name: 'Hand-grips',

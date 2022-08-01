@@ -9,7 +9,7 @@ app.controller('formCtrl', function ($scope) {
     confirmpassword= '',
 ]
   $scope.message = '';
-  $scope.users = [];
+  $scope.employees = [];
 
 
   $scope.formGroup = function () {
@@ -22,10 +22,10 @@ app.controller('formCtrl', function ($scope) {
         password: $scope.password,
         confirmpassword: $scope.confirmpassword,
       })
-      console.log($scope.users);
+      console.log($scope.employees);
     }
   }
   if(password == confirmpassword)$scope.message = 'Password is matched'
-  if(password == !confirmpassword)$scope.message = 'Password is Miss matched'
+  if(password == !confirmpassword)$scope.message = 'Reenter password'
 
 })
